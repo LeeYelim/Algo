@@ -32,15 +32,16 @@ public class BasicExam {
 			matrix[y-1][x-1]=true;
 		}
 		dfs(v-1); // 0으로 시작
-		System.out.println("================================");
+        System.out.println();
 		bfs(v-1); // 0으로 시작
 	}
 
 	private static void dfs(int v) {
 		array.add(v);
+        System.out.print((v+1) + " ");
 		for(int i=0; i<matrix[v].length; i++) {
 			if(matrix[v][i]==true && !array.contains(i)) {
-				System.out.println((v+1) + "에서 " + (i+1)+ "로 이동");
+				//System.out.print((i+1) + " ");
 				dfs(i);
 			}	
 		}
@@ -48,13 +49,14 @@ public class BasicExam {
 	
 	private static void bfs(int v) {
 		que.add(v);
+         System.out.print((v+1) + " ");
 		array = new ArrayList<Integer>();
 		array.add(v);
 		while(!que.isEmpty()) {
 			v = que.poll();
 			for(int i=0; i<matrix[v].length; i++) {
 				if(matrix[v][i]==true && !array.contains(i)) {
-					System.out.println((v+1) + "에서 " + (i+1)+ "로 이동");
+					System.out.print((i+1) + " ");
 					que.add(i);
 					array.add(i);
 				}
